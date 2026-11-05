@@ -1,0 +1,25 @@
+<resources>
+    <!-- Core Dark Void Palette -->
+    <color name="cxp_background">#0A0E17</color>
+    <color name="cxp_surface">#10192A</color>
+    <color name="cxp_surface_variant">#162238</color>
+    <color name="cxp_card_glass">#1C2A44</color>
+    <color name="cxp_card_glass_border">#2C3E63</color>
+
+    <!-- Neon Accents -->
+    <color name="cxp_electric_blue">#00E5FF</color>
+    <color name="cxp_hyper_blue">#2979FF</color>
+    <color name="cxp_neon_purple">#7C4DFF</color>
+    <color name="cxp_lavender_glow">#B388FF</color>
+    <color name="cxp_cyber_cyan">#00F0FF</color>
+
+    <!-- Status Colors -->
+    <color name="cxp_status_running">#00E676</color>
+    <color name="cxp_status_paused">#FFAB00</color>
+    <color name="cxp_status_stopped">#FF5252</color>
+
+    <!-- Typography -->
+    <color name="cxp_text_primary">#F0F4FC</color>
+    <color name="cxp_text_secondary">#94A3B8</color>
+    <color name="cxp_text_muted">#64748B</color>
+</resources>
