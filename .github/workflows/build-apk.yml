@@ -25,13 +25,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.4'
+
+      - name: Accept Android Licenses
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Build Debug APK
         run: gradle assembleDebug --stacktrace --no-daemon
@@ -44,7 +44,6 @@ jobs:
           retention-days: 30
 
       - name: Create GitHub Release & Upload APK
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.0
@@ -56,13 +55,13 @@ jobs:
             ### 🚀 Cloud Xtreme Pro - Official Android Release (v1.0.0)
             **Advanced Android Virtualization, App Cloning & Cloud Phone Platform**
 
-            #### Features:
+            #### Highlights:
             - **Local Virtualization Engine**: Complete multi-instance container sandboxing. Independent files, SQLite databases, SharedPreferences, and login sessions.
             - **Cloud Phone Streaming**: Remote Android VM execution with real-time screen stream, interactive OS simulator, touch feedback, and adb shell.
             - **Google Play Services & MicroG Support**: Transparent GMS capability detection and open-source MicroG compatibility layer.
             - **APK Manager**: 1-click clone installed apps, import storage APKs, extract native ABIs.
             - **Material 3 Cyber-Dark UI**: High-tech responsive dashboard with hardware resource gauges.
 
-            📥 **Direct Download Link**: Download `app-debug.apk` attached to this release and install it directly on your Android phone or emulator.
+            📥 **Direct Download Link**: Download `app-debug.apk` attached below and install it directly on your Android phone or emulator.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
